@@ -1,6 +1,6 @@
 # CoinGecko Tokens
 
-Aggregated list of [Token Lists](https://github.com/Uniswap/token-lists) from [CoinGecko](coingecko.com)
+Aggregated list of [Token Lists](https://github.com/Uniswap/token-lists) from [CoinGecko](https://coingecko.com)
 
 Hosted on Github and updated daily by Github Actions
 
