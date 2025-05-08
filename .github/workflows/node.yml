@@ -1,0 +1,41 @@
+name: Node.js
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions: write-all
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: current
+        cache: 'yarn'
+
+    - name: Run Task
+      run: yarn && yarn start
+
+    - name: Commit to Github
+      uses: stefanzweifel/git-auto-commit-action@v4
+
+    - name: Create tag to Github
+      uses: actions/github-script@v5
+      with:
+        script: |
+          const timestamp = Math.floor(Date.now() / 1000)
+          github.rest.git.createRef({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            ref: `refs/tags/${timestamp}`,
+            sha: context.sha
+          })
+    
+      

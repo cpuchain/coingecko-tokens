@@ -9,14 +9,15 @@
     "scripts": {
         "lint": "eslint src/**/*.ts",
         "build": "tsc --declaration",
+        "start": "ts-node src/index.ts",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "devDependencies": {
-        "@cpuchain/eslint": "^1.0.4",
-        "@types/node": "^22.13.5",
+        "@cpuchain/eslint": "^1.0.5",
+        "@types/node": "^22.15.15",
         "ts-node": "^10.9.2",
         "tsc": "^2.0.4",
-        "typescript": "^5.7.3"
+        "typescript": "^5.8.3"
     },
     "resolutions": {
         "fast-glob": ">=3.3.3"
