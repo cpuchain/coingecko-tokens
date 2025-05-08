@@ -1,7 +1,7 @@
 {
     "name": "coingecko-tokens",
-    "version": "1.0.0",
-    "description": "TypeScript template for CPUchain projects",
+    "version": "1.0.1",
+    "description": "Aggregated list of Token Lists from CoinGecko",
     "license": "MIT",
     "author": "CPUchain",
     "main": "lib/index.js",
