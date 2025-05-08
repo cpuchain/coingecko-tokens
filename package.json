@@ -1,6 +1,6 @@
 {
     "name": "coingecko-tokens",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Aggregated list of Token Lists from CoinGecko",
     "license": "MIT",
     "author": "CPUchain",
