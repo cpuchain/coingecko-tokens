@@ -1,23 +1,37 @@
 {
-    "name": "ts-template",
+    "name": "coingecko-tokens",
     "version": "1.0.0",
     "description": "TypeScript template for CPUchain projects",
     "license": "MIT",
     "author": "CPUchain",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
+    "keywords": ["coingecko", "uniswap", "tokenlist", "erc20", "tokens"],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cpuchain/coingecko-tokens.git"
+    },
     "scripts": {
-        "lint": "eslint src/**/*.ts",
-        "build": "tsc --declaration",
-        "start": "ts-node src/index.ts",
+        "lint": "eslint src/**/*.ts --ignore-pattern src/tokenlist.ts --ignore-pattern src/top.ts",
+        "build": "tsc --declaration && webpack",
+        "update": "ts-node src/update.ts && yarn build",
         "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "@uniswap/token-lists": "^1.0.0-beta.34",
+        "ajv": "^8.17.1",
+        "ajv-formats": "^3.0.1"
     },
     "devDependencies": {
         "@cpuchain/eslint": "^1.0.5",
         "@types/node": "^22.15.15",
+        "esbuild-loader": "^4.3.0",
+        "ethers": "^6.14.0",
         "ts-node": "^10.9.2",
         "tsc": "^2.0.4",
-        "typescript": "^5.8.3"
+        "typescript": "^5.8.3",
+        "webpack": "^5.99.8",
+        "webpack-cli": "^6.0.1"
     },
     "resolutions": {
         "fast-glob": ">=3.3.3"

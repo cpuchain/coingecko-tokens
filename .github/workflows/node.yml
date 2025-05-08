@@ -3,13 +3,13 @@ name: Node.js
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "0 2 * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    permissions: write-all
+    permissions:
+      contents: write
 
     steps:
     - uses: actions/checkout@v4
@@ -21,21 +21,7 @@ jobs:
         cache: 'yarn'
 
     - name: Run Task
-      run: yarn && yarn start
+      run: yarn && yarn update
 
     - name: Commit to Github
-      uses: stefanzweifel/git-auto-commit-action@v4
-
-    - name: Create tag to Github
-      uses: actions/github-script@v5
-      with:
-        script: |
-          const timestamp = Math.floor(Date.now() / 1000)
-          github.rest.git.createRef({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            ref: `refs/tags/${timestamp}`,
-            sha: context.sha
-          })
-    
-      
+      uses: stefanzweifel/git-auto-commit-action@v5
