@@ -23,9 +23,6 @@ const config = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
-        alias: {
-            ajv: false,
-        },
     },
 };
 
